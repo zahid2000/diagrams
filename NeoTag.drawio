@@ -1,9 +1,268 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.9">
-  <diagram name="Sayfa -1" id="xK4j9YgISxHNFjpJoabi">
-    <mxGraphModel dx="1426" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="NeoTag Database Schema" id="xK4j9YgISxHNFjpJoabi">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        
+        <!-- AspNetUsers Table -->
+        <mxCell id="aspnetusers" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AspNetUsers&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;• email: VARCHAR(256)&lt;br&gt;• phone_number: VARCHAR(256)&lt;br&gt;• user_name: VARCHAR(256)&lt;br&gt;• email_confirmed: BOOLEAN&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;br&gt;🗑️ is_deleted: BOOLEAN&lt;br&gt;🗑️ deleted_at: TIMESTAMP&lt;br&gt;🗑️ deleted_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="200" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- ProfileTypes Table -->
+        <mxCell id="profiletypes" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ProfileTypes&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: INTEGER&lt;br&gt;• code: VARCHAR(50)&lt;br&gt;• name: VARCHAR(100)&lt;br&gt;• description: TEXT&lt;br&gt;• is_active: BOOLEAN&lt;br&gt;• sort_order: INTEGER&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Profiles Table -->
+        <mxCell id="profiles" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Profiles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 owner_user_id: UUID&lt;br&gt;🔗 profile_type_id: INTEGER&lt;br&gt;• display_title: VARCHAR(200)&lt;br&gt;• avatar_url: VARCHAR(500)&lt;br&gt;• cover_url: VARCHAR(500)&lt;br&gt;• contact_phone: VARCHAR(50)&lt;br&gt;• contact_email: VARCHAR(256)&lt;br&gt;• website: VARCHAR(500)&lt;br&gt;• socials: JSONB&lt;br&gt;• is_public: BOOLEAN&lt;br&gt;• custom_message: TEXT&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;br&gt;🗑️ is_deleted: BOOLEAN&lt;br&gt;🗑️ deleted_at: TIMESTAMP&lt;br&gt;🗑️ deleted_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="240" height="280" as="geometry" />
+        </mxCell>
+
+        <!-- ExternalIds Table -->
+        <mxCell id="externalids" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ExternalIds&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 profile_id: UUID&lt;br&gt;🔗 profile_type_id: INTEGER&lt;br&gt;• external_id: VARCHAR(120)&lt;br&gt;• display_name: VARCHAR(200)&lt;br&gt;• description: TEXT&lt;br&gt;• is_primary: BOOLEAN&lt;br&gt;• is_active: BOOLEAN&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="280" width="200" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- Tags Table -->
+        <mxCell id="tags" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Tags&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 owner_user_id: UUID&lt;br&gt;🔗 external_id_ref: UUID&lt;br&gt;🔗 tag_status_id: INTEGER&lt;br&gt;• slug: VARCHAR(120) UNIQUE&lt;br&gt;• title: VARCHAR(200)&lt;br&gt;• enable_call: BOOLEAN&lt;br&gt;• enable_sms: BOOLEAN&lt;br&gt;• enable_email: BOOLEAN&lt;br&gt;• enable_analytics: BOOLEAN&lt;br&gt;• qr_code_url: VARCHAR(500)&lt;br&gt;• nfc_data: VARCHAR(500)&lt;br&gt;• total_interactions: INTEGER&lt;br&gt;• last_interaction_at: TIMESTAMP&lt;br&gt;• expires_at: TIMESTAMP&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;br&gt;🗑️ is_deleted: BOOLEAN&lt;br&gt;🗑️ deleted_at: TIMESTAMP&lt;br&gt;🗑️ deleted_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="280" width="240" height="360" as="geometry" />
+        </mxCell>
+
+        <!-- TagStatuses Table -->
+        <mxCell id="tagstatuses" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;TagStatuses&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: INTEGER&lt;br&gt;• code: VARCHAR(50)&lt;br&gt;• name: VARCHAR(100)&lt;br&gt;• description: TEXT&lt;br&gt;• color_code: VARCHAR(10)&lt;br&gt;• is_active: BOOLEAN&lt;br&gt;• sort_order: INTEGER&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="840" y="280" width="180" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- PersonAddresses Table -->
+        <mxCell id="personaddresses" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PersonAddresses&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 profile_id: UUID&lt;br&gt;• address_type: VARCHAR(50)&lt;br&gt;• street_address: VARCHAR(500)&lt;br&gt;• city: VARCHAR(100)&lt;br&gt;• state: VARCHAR(100)&lt;br&gt;• postal_code: VARCHAR(20)&lt;br&gt;• country: VARCHAR(100)&lt;br&gt;• latitude: DECIMAL(10,8)&lt;br&gt;• longitude: DECIMAL(11,8)&lt;br&gt;• is_primary: BOOLEAN&lt;br&gt;• is_active: BOOLEAN&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="220" height="240" as="geometry" />
+        </mxCell>
+
+        <!-- CompanyAddresses Table -->
+        <mxCell id="companyaddresses" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CompanyAddresses&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 company_id: UUID&lt;br&gt;• address_type: VARCHAR(50)&lt;br&gt;• street_address: VARCHAR(500)&lt;br&gt;• city: VARCHAR(100)&lt;br&gt;• state: VARCHAR(100)&lt;br&gt;• postal_code: VARCHAR(20)&lt;br&gt;• country: VARCHAR(100)&lt;br&gt;• latitude: DECIMAL(10,8)&lt;br&gt;• longitude: DECIMAL(11,8)&lt;br&gt;• is_primary: BOOLEAN&lt;br&gt;• is_active: BOOLEAN&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="600" width="220" height="240" as="geometry" />
+        </mxCell>
+
+        <!-- ThemeSettings Table -->
+        <mxCell id="themesettings" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ThemeSettings&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 profile_id: UUID&lt;br&gt;• theme_name: VARCHAR(100)&lt;br&gt;• primary_color: VARCHAR(10)&lt;br&gt;• secondary_color: VARCHAR(10)&lt;br&gt;• background_color: VARCHAR(10)&lt;br&gt;• text_color: VARCHAR(10)&lt;br&gt;• accent_color: VARCHAR(10)&lt;br&gt;• font_family: VARCHAR(100)&lt;br&gt;• layout_style: VARCHAR(50)&lt;br&gt;• custom_css: JSONB&lt;br&gt;• is_active: BOOLEAN&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="680" width="200" height="240" as="geometry" />
+        </mxCell>
+
+        <!-- TagInteractions Table -->
+        <mxCell id="taginteractions" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;TagInteractions&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 tag_id: UUID&lt;br&gt;🔗 interaction_type_id: INTEGER&lt;br&gt;• visitor_ip: INET&lt;br&gt;• user_agent: TEXT&lt;br&gt;• referrer: VARCHAR(500)&lt;br&gt;• device_type: VARCHAR(50)&lt;br&gt;• browser: VARCHAR(50)&lt;br&gt;• operating_system: VARCHAR(50)&lt;br&gt;• country: VARCHAR(100)&lt;br&gt;• city: VARCHAR(100)&lt;br&gt;• latitude: DECIMAL(10,8)&lt;br&gt;• longitude: DECIMAL(11,8)&lt;br&gt;• metadata: JSONB&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="820" y="460" width="200" height="280" as="geometry" />
+        </mxCell>
+
+        <!-- InteractionTypes Table -->
+        <mxCell id="interactiontypes" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;InteractionTypes&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: INTEGER&lt;br&gt;• code: VARCHAR(50)&lt;br&gt;• name: VARCHAR(100)&lt;br&gt;• description: TEXT&lt;br&gt;• is_active: BOOLEAN&lt;br&gt;• sort_order: INTEGER&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1060" y="460" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- NotificationTemplates Table -->
+        <mxCell id="notificationtemplates" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NotificationTemplates&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 notification_type_id: INTEGER&lt;br&gt;• name: VARCHAR(200)&lt;br&gt;• subject_template: VARCHAR(500)&lt;br&gt;• body_template: TEXT&lt;br&gt;• sms_template: TEXT&lt;br&gt;• email_settings: JSONB&lt;br&gt;• is_active: BOOLEAN&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="40" width="220" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- NotificationTypes Table -->
+        <mxCell id="notificationtypes" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NotificationTypes&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: INTEGER&lt;br&gt;• code: VARCHAR(50)&lt;br&gt;• name: VARCHAR(100)&lt;br&gt;• description: TEXT&lt;br&gt;• is_active: BOOLEAN&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1540" y="40" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- UserNotifications Table -->
+        <mxCell id="usernotifications" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;UserNotifications&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 user_id: UUID&lt;br&gt;🔗 template_id: UUID&lt;br&gt;🔗 tag_id: UUID&lt;br&gt;• title: VARCHAR(500)&lt;br&gt;• message: TEXT&lt;br&gt;• data: JSONB&lt;br&gt;• is_read: BOOLEAN&lt;br&gt;• action_url: VARCHAR(500)&lt;br&gt;• read_at: TIMESTAMP&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="260" width="220" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- SystemNotifications Table -->
+        <mxCell id="systemnotifications" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SystemNotifications&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;• title: VARCHAR(500)&lt;br&gt;• message: TEXT&lt;br&gt;• notification_level: VARCHAR(50)&lt;br&gt;• target_audience: VARCHAR(50)&lt;br&gt;• is_active: BOOLEAN&lt;br&gt;• start_date: TIMESTAMP&lt;br&gt;• end_date: TIMESTAMP&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="480" width="220" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- NotificationDeliveries Table -->
+        <mxCell id="notificationdeliveries" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NotificationDeliveries&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 notification_id: UUID&lt;br&gt;• delivery_method: VARCHAR(50)&lt;br&gt;• status: VARCHAR(50)&lt;br&gt;• recipient: VARCHAR(256)&lt;br&gt;• error_message: TEXT&lt;br&gt;• sent_at: TIMESTAMP&lt;br&gt;• delivered_at: TIMESTAMP&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1540" y="260" width="220" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Subscriptions Table -->
+        <mxCell id="subscriptions" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Subscriptions&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 user_id: UUID&lt;br&gt;🔗 plan_id: INTEGER&lt;br&gt;• status: VARCHAR(50)&lt;br&gt;• starts_at: TIMESTAMP&lt;br&gt;• expires_at: TIMESTAMP&lt;br&gt;• auto_renew: BOOLEAN&lt;br&gt;• current_price: DECIMAL(10,2)&lt;br&gt;• currency: VARCHAR(10)&lt;br&gt;• stripe_subscription_id: VARCHAR(100)&lt;br&gt;• trial_ends_at: TIMESTAMP&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;br&gt;👤 created_by_id: UUID&lt;br&gt;👤 updated_by_id: UUID&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="700" width="220" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- SubscriptionPlans Table -->
+        <mxCell id="subscriptionplans" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SubscriptionPlans&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: INTEGER&lt;br&gt;• code: VARCHAR(50)&lt;br&gt;• name: VARCHAR(200)&lt;br&gt;• description: TEXT&lt;br&gt;• monthly_price: DECIMAL(10,2)&lt;br&gt;• yearly_price: DECIMAL(10,2)&lt;br&gt;• max_tags: INTEGER&lt;br&gt;• max_profiles: INTEGER&lt;br&gt;• has_analytics: BOOLEAN&lt;br&gt;• has_custom_branding: BOOLEAN&lt;br&gt;• has_api_access: BOOLEAN&lt;br&gt;• features: JSONB&lt;br&gt;• is_active: BOOLEAN&lt;br&gt;• sort_order: INTEGER&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1540" y="700" width="220" height="240" as="geometry" />
+        </mxCell>
+
+        <!-- Payments Table -->
+        <mxCell id="payments" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Payments&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: UUID&lt;br&gt;🔗 user_id: UUID&lt;br&gt;🔗 subscription_id: UUID&lt;br&gt;🔗 payment_method_id: INTEGER&lt;br&gt;• provider: VARCHAR(50)&lt;br&gt;• amount: DECIMAL(10,2)&lt;br&gt;• currency: VARCHAR(10)&lt;br&gt;• transaction_id: VARCHAR(100)&lt;br&gt;• status: VARCHAR(50)&lt;br&gt;• failure_reason: TEXT&lt;br&gt;• metadata: JSONB&lt;br&gt;• paid_at: TIMESTAMP&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;📅 created_at: TIMESTAMP&lt;br&gt;📅 updated_at: TIMESTAMP&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="1800" y="700" width="220" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- PaymentMethods Table -->
+        <mxCell id="paymentmethods" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PaymentMethods&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 id: INTEGER&lt;br&gt;• code: VARCHAR(50)&lt;br&gt;• name: VARCHAR(100)&lt;br&gt;• description: TEXT&lt;br&gt;• icon_url: VARCHAR(500)&lt;br&gt;• is_active: BOOLEAN&lt;br&gt;• sort_order: INTEGER&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="2060" y="700" width="180" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Profile Type Tables (Business, Personal, etc.) -->
+        <mxCell id="businessprofiles" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;BusinessProfiles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 profile_id: UUID (PK/FK)&lt;br&gt;• full_name: VARCHAR(200)&lt;br&gt;• company_name: VARCHAR(200)&lt;br&gt;• job_title: VARCHAR(150)&lt;br&gt;• department: VARCHAR(100)&lt;br&gt;• industry: VARCHAR(100)&lt;br&gt;• tax_id: VARCHAR(50)&lt;br&gt;• bio: TEXT&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="880" width="200" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="personalprofiles" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PersonalProfiles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 profile_id: UUID (PK/FK)&lt;br&gt;• full_name: VARCHAR(200)&lt;br&gt;• nickname: VARCHAR(100)&lt;br&gt;• birth_date: DATE&lt;br&gt;• gender: VARCHAR(20)&lt;br&gt;• profession: VARCHAR(100)&lt;br&gt;• bio: TEXT&lt;br&gt;• emergency_contact: VARCHAR(200)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="880" width="200" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="vehicleprofiles" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VehicleProfiles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 profile_id: UUID (PK/FK)&lt;br&gt;• plate_number: VARCHAR(20)&lt;br&gt;• brand: VARCHAR(50)&lt;br&gt;• model: VARCHAR(50)&lt;br&gt;• color: VARCHAR(30)&lt;br&gt;• year: VARCHAR(10)&lt;br&gt;• vin_number: VARCHAR(50)&lt;br&gt;• insurance_info: VARCHAR(200)&lt;br&gt;• notes: TEXT&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1040" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="petprofiles" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PetProfiles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;🔑 profile_id: UUID (PK/FK)&lt;br&gt;• pet_name: VARCHAR(100)&lt;br&gt;• species: VARCHAR(50)&lt;br&gt;• breed: VARCHAR(100)&lt;br&gt;• gender: VARCHAR(20)&lt;br&gt;• birth_date: DATE&lt;br&gt;• microchip_id: VARCHAR(50)&lt;br&gt;• vet_name: VARCHAR(200)&lt;br&gt;• vet_phone: VARCHAR(50)&lt;br&gt;• medical_notes: TEXT&lt;br&gt;• allergies: TEXT&lt;br&gt;• vaccinations: JSONB&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="1040" width="200" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="edge1" edge="1" parent="1" source="aspnetusers" target="profiles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="240" as="sourcePoint" />
+            <mxPoint x="160" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge2" edge="1" parent="1" source="profiletypes" target="profiles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="160" as="sourcePoint" />
+            <mxPoint x="280" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge3" edge="1" parent="1" source="profiles" target="externalids">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="420" as="sourcePoint" />
+            <mxPoint x="320" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge4" edge="1" parent="1" source="externalids" target="tags">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="460" as="sourcePoint" />
+            <mxPoint x="560" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge5" edge="1" parent="1" source="tagstatuses" target="tags">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="360" as="sourcePoint" />
+            <mxPoint x="800" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge6" edge="1" parent="1" source="profiles" target="personaddresses">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="560" as="sourcePoint" />
+            <mxPoint x="150" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge7" edge="1" parent="1" source="profiles" target="themesettings">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="560" as="sourcePoint" />
+            <mxPoint x="560" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge8" edge="1" parent="1" source="tags" target="taginteractions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="580" as="sourcePoint" />
+            <mxPoint x="820" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge9" edge="1" parent="1" source="interactiontypes" target="taginteractions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1060" y="580" as="sourcePoint" />
+            <mxPoint x="1020" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge10" edge="1" parent="1" source="notificationtypes" target="notificationtemplates">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1540" y="120" as="sourcePoint" />
+            <mxPoint x="1500" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge11" edge="1" parent="1" source="notificationtemplates" target="usernotifications">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1390" y="220" as="sourcePoint" />
+            <mxPoint x="1390" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge12" edge="1" parent="1" source="usernotifications" target="notificationdeliveries">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1500" y="340" as="sourcePoint" />
+            <mxPoint x="1540" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge13" edge="1" parent="1" source="aspnetusers" target="subscriptions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="140" as="sourcePoint" />
+            <mxPoint x="1280" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge14" edge="1" parent="1" source="subscriptionplans" target="subscriptions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1540" y="810" as="sourcePoint" />
+            <mxPoint x="1500" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge15" edge="1" parent="1" source="subscriptions" target="payments">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1500" y="810" as="sourcePoint" />
+            <mxPoint x="1800" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge16" edge="1" parent="1" source="paymentmethods" target="payments">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2060" y="810" as="sourcePoint" />
+            <mxPoint x="2020" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge17" edge="1" parent="1" source="profiles" target="businessprofiles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="560" as="sourcePoint" />
+            <mxPoint x="800" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge18" edge="1" parent="1" source="profiles" target="personalprofiles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="560" as="sourcePoint" />
+            <mxPoint x="1040" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge19" edge="1" parent="1" source="profiles" target="vehicleprofiles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="560" as="sourcePoint" />
+            <mxPoint x="1280" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="edge20" edge="1" parent="1" source="profiles" target="petprofiles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="560" as="sourcePoint" />
+            <mxPoint x="1520" y="1140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
